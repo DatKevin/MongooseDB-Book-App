@@ -55,14 +55,14 @@ const books_list = [
 ];
 
 // remove all records that match {} -- which means remove ALL records
-db.Book.deleteMany({}, function(err, books){
+db.BookModel.deleteMany({}, function(err, books){
   if(err) {
     console.log('Error occurred in remove', err);
   } else {
     console.log('removed all books');
 
     // create new records based on the array books_list
-    db.Book.create(books_list, function(err, books){
+    db.BookModel.create(books_list, function(err, books){
       if (err) { return console.log('err', err); }
       console.log("created", books.length, "books");
       process.exit();
